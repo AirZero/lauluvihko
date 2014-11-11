@@ -1,2 +1,0 @@
-\chapter{Koodaajamies}
-Sinussa on roimaa, lähdekoodin voimaa.
