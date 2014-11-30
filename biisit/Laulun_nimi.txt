@@ -1,2 +1,4 @@
 \chapter{Laulun nimi}
+Laulun sanat\chapter{Laulun nimi}
+Laulun sanat\chapter{Laulun nimi}
 Laulun sanat
