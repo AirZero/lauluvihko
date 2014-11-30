@@ -7,16 +7,16 @@ foreach ($name as $song) {
 
 //echo $song;
 
-$filename = 'biisit/' . 'songbook' . '.tex' ;
+$filename = 'books/' . 'songbook' . '.tex' ;
 $readfilename = 'biisit/' . $song;
 echo $readfilename;
 $myfile = fopen($readfilename, "r") or die("Unable to open file!");
-$data = fread($myfile,filesize($readfilename));
+$data = PHP_EOL . fread($myfile,filesize($readfilename));
 echo $data;
 fclose($myfile);
 
 
- $ret = file_put_contents($filename, $data, FILE_APPEND | LOCK_EX);
+$ret = file_put_contents($filename, $data, FILE_APPEND | LOCK_EX);
     if($ret === false) {
         die('There was an error writing this file');
     }
