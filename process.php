@@ -2,7 +2,7 @@
 $name = $_GET['songs'];
 
 $songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']); // Ei tyhmää paskaa tiedostonimeen
-
+$songbooktitle = preg_replace('/[^A-Za-z0-9_\ -]/', '_', $_GET['bookname']); 
 
 if (is_array($name)) {
 
@@ -17,10 +17,14 @@ function readAndWrite($readfilename, $writefilename) {
 $myfile = fopen($readfilename, "r") or die("Unable to open file!");
 $fileContents = PHP_EOL . fread($myfile,filesize($readfilename));
 
-echo $fileContents;
 fclose($myfile);
+writetofile($writefilename, $fileContents);
+}
 
-$ret = file_put_contents($writefilename, $fileContents, FILE_APPEND | LOCK_EX);
+//Kirjoittaa ensimmäisen parametrin nimiseen tiedostoon toisen parametrin sisällön.
+function writetofile($writefile, $fileContents){
+echo $fileContents;
+$ret = file_put_contents($writefile, $fileContents, FILE_APPEND | LOCK_EX);
  if($ret === false) {
         die('There was an error writing this file');
     }
@@ -33,14 +37,11 @@ $ret = file_put_contents($writefilename, $fileContents, FILE_APPEND | LOCK_EX);
 $songbookbegin = 'structure/begin.txt';
 readAndWrite($songbookbegin, $filename);
 
-$title = '\title{' . $_GET['bookname'] . '}';
-readAndWrite($title, $filename);
 
-$songbookend = 'structure/end.txt';
-readAndWrite($songbookend, $filename);
+writetofile($songbooktitle, $filename);
 
+//Kirjoitetaan laulukirjaan valitut laulut.
 foreach ($name as $song) {
-
 //$filename = 'books/' . $songbookname . '.tex' ;
 $readfile = 'biisit/' . $song;
 
@@ -48,21 +49,24 @@ echo $readfile;
 
 readAndWrite($readfile, $filename); 
 
-/*
-$myfile = fopen($readfilename, "r") or die("Unable to open file!");
-$data = PHP_EOL . fread($myfile,filesize($readfilename));
-
-echo $data;
-fclose($myfile);
-
-$ret = file_put_contents($filename, $data, FILE_APPEND | LOCK_EX);
-    if($ret === false) {
-        die('There was an error writing this file');
-    }
-    else {
-        echo "$ret bytes written to file";
-    } */
 }
+
+//Laulukirjan loppuun vaaditut tekstit.
+$songbookend = 'structure/end.txt';
+readAndWrite($songbookend, $filename);
+
+//Generates .pdf
+exec('latexmk -pdf' . $filename);
+$pdfname = substr($filename, 0, -4) . '.pdf';
+if(file_exists(pdfname)){
+readfile($pdfname);
+}
+else{
+echo "pdf-generointi ei onnistunut!";
+}
+
+echo "Homma toimii ja laulu raikaa!";
+
 }
 
 else{
