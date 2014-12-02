@@ -23,15 +23,11 @@ $name = scandir_tree(biisit);//$_GET['color'];
 // echo "You chose the following color(s): <br>";
 
 echo '<form action="process.php" method="get">';//1testi
+echo '<input name="bookname" type="text" value="Kirjan nimi">';
 
 foreach ($name as $song){
 //echo $color."<br />";
-echo '<br /> <input type="checkbox" name="songs" id="songs" value='. $song .'>'. $song;//1testi
-
-
-//TODO kirjoita foreach-looppi joka nielee arrayn biisitiedostojen nimistä(.txt) ja paskantaa html-checkboxeja. HTML-puolen taas pitää palauttaa php:lle array valituista rasteista(esimerkissä array on color)
-
-//<input name =MyArray[]" /> //testausta
+echo '<br /> <input type="checkbox" name="songs[]" /*id="songs"*/ value='. $song .'>'. $song;//1testi
 
 }
 
