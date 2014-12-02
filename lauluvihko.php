@@ -9,7 +9,7 @@
 
 <h1>Lauluvihkogeneraattori</h1>
 <h2>Luo uusi laulu</h2>
-<p>Laulut löytyvät <a href="/biisit/">täältä</a>.</p>
+<p>Laulut löytyvät <a href="biisit/">täältä</a>.</p>
 <form action="biisinsyotto.php" method="post">
 <p>
     <input name="laulun_nimi" value="Laulun nimi"/>
@@ -21,7 +21,7 @@
 </form>
 
 <h2>Luo uusi lauluvihko</h2>
-<p>Lauluvihkot tallentuvat <a href="/books/">tänne</a>.</p>
+<p>Lauluvihkot tallentuvat <a href="books/">tänne</a>. Valitse kappaleet, jotka haluat lauluvihkoosi.</p>
 <?php include("songlist.php"); ?>
 
 

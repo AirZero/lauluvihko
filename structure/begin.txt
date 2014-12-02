@@ -1,9 +1,9 @@
 {\documentclass[utf8,bachelor]{gradu3}
 
 \usepackage{graphicx} % kuvien mukaan ottamista varten
-\usepackage{booktabs} % hyvä kauniiden taulukoiden tekemiseen
+%\usepackage{booktabs} % hyvä kauniiden taulukoiden tekemiseen
 % HUOM! Tämän tulee olla viimeinen \usepackage koko dokumentissa!
-\usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
+%\usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
 
 \begin{document}
 

@@ -56,8 +56,12 @@ $songbookend = 'structure/end.txt';
 readAndWrite($songbookend, $filename);
 
 //Generates .pdf
-exec('latexmk -pdf' . $filename);
+$generate = 'latexmk -pdf' . " '" . $filename . "'";//$filename;
+echo "GENERATE:" . $generate;
+exec('cd books && $generate');
+//shell_exec("/usr/bin/pdflatex -output-directory /pdfs --interaction batchmode $filename");
 $pdfname = substr($filename, 0, -4) . '.pdf';
+//echo "PDF-NIMI:" $pdfname;
 if(file_exists(pdfname)){
 readfile($pdfname);
 }
@@ -65,7 +69,7 @@ else{
 echo "pdf-generointi ei onnistunut!";
 }
 
-echo "Homma toimii ja laulu raikaa!";
+//echo "Homma toimii ja laulu raikaa!";
 
 }
 
