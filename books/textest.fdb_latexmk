@@ -1,7 +1,8 @@
 # Fdb version 3
-["biber textest"] 1417542223 "textest.bcf" "textest.bbl" "textest" 
+["biber textest"] 1417609304 "textest.bcf" "textest.bbl" "textest" 
   "textest.bcf" 1417542224 11803 eb9eaad5d35fefcf695543137c153300 ""
   (generated)
+  "textest.blg"
   "textest.bbl"
 ["latex"] 1417542087 "textest.tex" "textest.dvi" "textest" 
   "/usr/share/texlive/texmf-dist/tex/generic/ifxetex/ifxetex.sty" 1284331290 1458 43ab4710dc82f3edeabecd0d099626b2 ""

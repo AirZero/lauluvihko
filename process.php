@@ -1,8 +1,10 @@
 <?php
+//processes song.txt's to .tex and .pdf
+
 $name = $_GET['songs'];
 
 $songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']); // Ei tyhmää paskaa tiedostonimeen
-$songbooktitle = preg_replace('/[^A-Za-z0-9_\ -]/', '_', $_GET['bookname']); 
+$songbooktitle = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_GET['bookname']); 
 
 if (is_array($name)) {
 
@@ -37,8 +39,8 @@ $ret = file_put_contents($writefile, $fileContents, FILE_APPEND | LOCK_EX);
 $songbookbegin = 'structure/begin.txt';
 readAndWrite($songbookbegin, $filename);
 
-
-writetofile($songbooktitle, $filename);
+//Writes name of songbook.
+writetofile($filename,'\title{' . $songbooktitle . '}');
 
 //Kirjoitetaan laulukirjaan valitut laulut.
 foreach ($name as $song) {
@@ -56,7 +58,7 @@ $songbookend = 'structure/end.txt';
 readAndWrite($songbookend, $filename);
 
 //Generates .pdf
-$generate = 'latexmk -pdf' . " '" . $filename . "'";//$filename;
+$generate = 'latexmk -pdf -f ' . $filename;     // '-jobname=/books_pdf/' . $songbookname . '.tex' ;//$filename;
 echo "GENERATE:" . $generate;
 exec('cd books && $generate');
 //shell_exec("/usr/bin/pdflatex -output-directory /pdfs --interaction batchmode $filename");
