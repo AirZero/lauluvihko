@@ -36,11 +36,14 @@ $ret = file_put_contents($writefile, $fileContents, FILE_APPEND | LOCK_EX);
 }
 
 //$songbookbegin  is the stuff that's needed before the chapters for generating latex document.
-$songbookbegin = 'structure/begin.txt';
+$songbookbegin = 'structure/begin.tex';
 readAndWrite($songbookbegin, $filename);
 
+//Creates title page
+readAndWrite('structure/titlepage.tex', $filename);
+
 //Writes name of songbook.
-writetofile($filename,'\title{' . $songbooktitle . '}');
+writetofile($filename,'\title{' . $songbooktitle . '}' . PHP_EOL  .'\maketitle');
 
 //Kirjoitetaan laulukirjaan valitut laulut.
 foreach ($name as $song) {
@@ -54,7 +57,7 @@ readAndWrite($readfile, $filename);
 }
 
 //Laulukirjan loppuun vaaditut tekstit.
-$songbookend = 'structure/end.txt';
+$songbookend = 'structure/end.tex';
 readAndWrite($songbookend, $filename);
 
 //Generates .pdf
