@@ -1,5 +1,7 @@
 <?php
 //processes song.txt's to .tex and .pdf
+//
+
 
 $name = $_GET['songs'];
 
@@ -40,10 +42,10 @@ $songbookbegin = 'structure/begin.tex';
 readAndWrite($songbookbegin, $filename);
 
 //Creates title page
-readAndWrite('structure/titlepage.tex', $filename);
+//readAndWrite('structure/titlepage.tex', $filename);
 
 //Writes name of songbook.
-writetofile($filename,'\title{' . $songbooktitle . '}' . PHP_EOL  .'\maketitle');
+//writetofile($filename,'\title{' . $songbooktitle . '}' . PHP_EOL  .'\maketitle');
 
 //Kirjoitetaan laulukirjaan valitut laulut.
 foreach ($name as $song) {
@@ -63,7 +65,7 @@ readAndWrite($songbookend, $filename);
 //Generates .pdf
 $generate = 'latexmk -pdf -f ' . $filename;     // '-jobname=/books_pdf/' . $songbookname . '.tex' ;//$filename;
 echo "GENERATE:" . $generate;
-exec('cd books && $generate');
+echo exec($generate);
 //shell_exec("/usr/bin/pdflatex -output-directory /pdfs --interaction batchmode $filename");
 $pdfname = substr($filename, 0, -4) . '.pdf';
 //echo "PDF-NIMI:" $pdfname;

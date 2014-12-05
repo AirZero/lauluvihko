@@ -1,21 +1,32 @@
-%\documentclass[utf8,bachelor]{gradu3}
-\documentclass[12pt]{book}
-\usepackage[finnish]{babel}
-\usepackage[T1]{fontenc}
-\usepackage[latin1]{inputenc}
-\usepackage[a4paper,text={140mm,220mm},top=40mm,head=15pt,bindingoffset=15mm]{geometry}
+\documentclass[a4paper,12pt,oneside]{lauluvihko}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
 \usepackage{multicol}
-\usepackage{graphicx} % kuvien mukaan ottamista varten
-%\usepackage{etoolbox}
-%\makeatletter
-%\patchcmd{\chapter}{\if@openright\cleardoublepage\else\clearpage\fi}{}{}{}
-%\makeatother
-%\usepackage{booktabs} % hyvä kauniiden taulukoiden tekemiseen
-% HUOM! Tämän tulee olla viimeinen \usepackage koko dokumentissa!
-%\usepackage[bookmarksopen,bookmarksnumbered,linktocpage]{hyperref}
+\usepackage{rotating}
+\usepackage[finnish]{babel}
+\usepackage[OT1]{fontenc}
+
+\usepackage[pdftex,hidelinks]{hyperref}
+
+\usepackage{blindtext}
+
+%\author{Heikki Pitkänen}
+%\date{04.12.2014}
+
 
 \begin{document}
-\begingroup
-\let\clearpage\relax
-\begin{multicols}{3}
-\tableofcontents
+   \thispagestyle{empty}
+   \vfill
+    \begin{center}
+      \includegraphics{kansi.png}
+    \end{center}
+   \vfill
+   \newpage
+   \tableofcontents
+   \newpage
+\begin{multicols}{2}
+
