@@ -2,7 +2,7 @@
 //processes song.txt's to .tex and .pdf
 //
 
-
+//TODO regexp check
 $name = $_GET['songs'];
 
 $songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']); // Ei tyhmää paskaa tiedostonimeen
