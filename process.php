@@ -43,8 +43,9 @@ $songbookbegin = 'structure/begin.tex';
 readAndWrite($songbookbegin, $filename);
 
 //Adds frontpage picture
-$covername = '\includegraphics{' . 'frontpage/' . $cover[0] . '}';
+$covername = '\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{' . 'frontpage/' . $cover[0] . '}';
 writetofile($filename, $covername);
+
 
 //Adds stuff after frontpage picture
 $after = 'structure/after_frontpage.tex';
