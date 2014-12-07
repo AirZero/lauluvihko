@@ -76,10 +76,19 @@ readAndWrite($songbookend, $filename);
 $generate = 'pdflatex -output-directory books_pdf ' . $filename;//'latexmk -pdf -f ' . $filename;     // '-jobname=/books_pdf/' . $songbookname . '.tex' ;//$filename;
 echo "GENERATE:" . $generate;
 echo exec($generate);
+echo exec($generate);
+
+//removes unnecessary files
+/*$firstpart = substr($filename, 0, -4);
+echo exec(rm $firstpart . '.aux');
+echo exec(rm $firstpart . '.toc');
+echo exec(rm $firstpart . '.out');
+*/
+
 //shell_exec("/usr/bin/pdflatex -output-directory /pdfs --interaction batchmode $filename");
 $pdfname = substr($filename, 0, -4) . '.pdf';
 //echo "PDF-NIMI:" $pdfname;
-if(file_exists(pdfname)){
+if(file_exists($pdfname)){
 readfile($pdfname);
 }
 else{
