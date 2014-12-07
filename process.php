@@ -7,15 +7,13 @@ $name = $_GET['songs'];
 $cover = $_GET['pics'];
 $pdfsavedir = 'books_pdf';
 
-$songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']); // Ei tyhmää paskaa tiedostonimeen
+$songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']);  //regexp rips off the useless stuff.
 $songbooktitle = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_GET['bookname']); 
 
 if (is_array($name)) {
 
 //This tells which folder and which name are used to save songbook.
-$filename = $pdfsavedir . '/' . $songbookname . '.tex' ;
-
-//readAndWrite($songbookbegin, filename);
+$filename = 'books/' . $songbookname . '.tex' ;
 
 //read file and writes it contents to another file.
 function readAndWrite($readfilename, $writefilename) {
@@ -35,7 +33,7 @@ $ret = file_put_contents($writefile, $fileContents, FILE_APPEND | LOCK_EX);
         die('There was an error writing this file');
     }
     else {
-        echo "$ret bytes written to file";
+        echo "$ret tavun kokoinen laulu tallennettu onnistuneesti.";
     }
 }
 
@@ -64,7 +62,7 @@ readAndWrite($after, $filename);
 foreach ($name as $song) {
 
 $readfile = 'biisit/' . $song;
-//DEBUG echo $readfile;
+echo $readfile;
 readAndWrite($readfile, $filename); 
 
 }
@@ -74,8 +72,8 @@ $songbookend = 'structure/end.tex';
 readAndWrite($songbookend, $filename);
 
 //Generates .pdf
-$generate = 'pdflatex -output-directory ' . $filename;
-//DEBUG echo "GENERATE:" . $generate;
+$generate = 'pdflatex -output-directory books_pdf/ ' . $filename;
+echo "GENERATE:" . $generate;
 echo exec($generate);
 echo exec($generate);
 
@@ -87,14 +85,16 @@ echo exec(rm $firstpart . '.out');
 */
 
 //shell_exec("/usr/bin/pdflatex -output-directory /pdfs --interaction batchmode $filename");
-$pdfname = substr($filename, 0, -4) . '.pdf';
+$pdfname = substr('books_pdf/' . $songbookname . '.pdf');
 //DEBUG echo "PDF-NIMI:" . $pdfname;
 if(file_exists($pdfname)){
-readfile($pdfname);
-header( "refresh:5;url=$pdfname" );
+echo '<a href="' . $pdfname . '">' . $pdfname . '</a>';
+//readfile($pdfname);
+//header( "refresh:5;url=$pdfname" );
 }
 else{
 echo "pdf-generointi ei onnistunut!";
+echo '<a href="' . $pdfname . '">' . $pdfname . '</a>';
 }
 
 //echo "Homma toimii ja laulu raikaa!";

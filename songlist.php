@@ -30,22 +30,20 @@ $frontpagepics = scandir_tree(frontpage);
 echo '<form action="process.php" method="get">';//1testi
 //Kirjannimi-kenttä
 echo '<h3>Valitse vihkon nimi</h3>';
-echo '<input name="bookname" type="text" value="Vihkon nimi">';
-echo '<br>';
+echo '<p><input name="bookname" type="text" value="Vihkon nimi" /><br /></p>';
 echo '<h3>Valitse laulut</h3>';
 foreach ($name as $song){
 //echo $color."<br />";
-echo '<input type="checkbox" name="songs[]" /*id="songs"*/ value='. $song .'>'. $song .'<br>';//1testi
+echo '<p><input type="checkbox" name="songs[]" value=' . '"' . $song . '"' . '/>' . '<a href="biisit/' . $song . '">' . $song . '"' .'</a>' . '<br /></p>';//1testi
 }
 
 //creates checkbox list from the pics
 echo '<h3>Valitse kansikuva</h3>';
 foreach ($frontpagepics as $pic){
-echo '<input type="radio" name="pics[]" value='. $pic .'>'. $pic;//1testi
-echo '<br>';
+echo '<p><input type="radio" name="pics[]" value='. '"' . $pic . '"'  .'/>' . '<a href="frontpage/' . $pic . '">' . $pic . '"' . '</a>' . '<br /></p>';//1testi
 }
 
-echo '<br><input type="submit" value="Luo lauluvihko">';//1testi
+echo '<p><br /><input type="submit" value="Luo lauluvihko" /></p>';//1testi
 
 echo "</form>";//1testi
 
