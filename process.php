@@ -5,6 +5,7 @@
 //TODO regexp check
 $name = $_GET['songs'];
 $cover = $_GET['pics'];
+$pdfsavedir = 'books_pdf';
 
 $songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']); // Ei tyhmää paskaa tiedostonimeen
 $songbooktitle = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_GET['bookname']); 
@@ -12,7 +13,7 @@ $songbooktitle = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_
 if (is_array($name)) {
 
 //This tells which folder and which name are used to save songbook.
-$filename = 'books/' . $songbookname . '.tex' ;
+$filename = $pdfsavedir . '/' . $songbookname . '.tex' ;
 
 //readAndWrite($songbookbegin, filename);
 
@@ -58,13 +59,12 @@ readAndWrite($after, $filename);
 //Writes name of songbook.
 //writetofile($filename,'\title{' . $songbooktitle . '}' . PHP_EOL  .'\maketitle');
 
+
 //Kirjoitetaan laulukirjaan valitut laulut.
 foreach ($name as $song) {
-//$filename = 'books/' . $songbookname . '.tex' ;
+
 $readfile = 'biisit/' . $song;
-
-echo $readfile;
-
+//DEBUG echo $readfile;
 readAndWrite($readfile, $filename); 
 
 }
@@ -74,8 +74,8 @@ $songbookend = 'structure/end.tex';
 readAndWrite($songbookend, $filename);
 
 //Generates .pdf
-$generate = 'pdflatex -output-directory books_pdf ' . $filename;//'latexmk -pdf -f ' . $filename;     // '-jobname=/books_pdf/' . $songbookname . '.tex' ;//$filename;
-echo "GENERATE:" . $generate;
+$generate = 'pdflatex -output-directory ' . $filename;
+//DEBUG echo "GENERATE:" . $generate;
 echo exec($generate);
 echo exec($generate);
 
@@ -88,7 +88,7 @@ echo exec(rm $firstpart . '.out');
 
 //shell_exec("/usr/bin/pdflatex -output-directory /pdfs --interaction batchmode $filename");
 $pdfname = substr($filename, 0, -4) . '.pdf';
-//echo "PDF-NIMI:" $pdfname;
+//DEBUG echo "PDF-NIMI:" . $pdfname;
 if(file_exists($pdfname)){
 readfile($pdfname);
 header( "refresh:5;url=$pdfname" );
