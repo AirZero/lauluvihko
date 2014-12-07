@@ -29,21 +29,23 @@ $frontpagepics = scandir_tree(frontpage);
 // Creates checkbox list from the .txt's
 echo '<form action="process.php" method="get">';//1testi
 //Kirjannimi-kenttä
-echo '<input name="bookname" type="text" value="Kirjan nimi">';
-
+echo '<h3>Valitse vihkon nimi</h3>';
+echo '<input name="bookname" type="text" value="Vihkon nimi">';
+echo '<br>';
+echo '<h3>Valitse laulut</h3>';
 foreach ($name as $song){
 //echo $color."<br />";
-echo '<br /> <input type="checkbox" name="songs[]" /*id="songs"*/ value='. $song .'>'. $song;//1testi
+echo '<input type="checkbox" name="songs[]" /*id="songs"*/ value='. $song .'>'. $song .'<br>';//1testi
 }
 
 //creates checkbox list from the pics
-echo '<h2>Valitse kansikuva</h2>';
-echo '<p>Kuvan olisi suotavaa olla .png-muotoinen.</p>';
+echo '<h3>Valitse kansikuva</h3>';
 foreach ($frontpagepics as $pic){
-echo '<br /> <input type="radio" name="pics[]" value='. $pic .'>'. $pic;//1testi
+echo '<input type="radio" name="pics[]" value='. $pic .'>'. $pic;//1testi
+echo '<br>';
 }
 
-echo '<br /> <input type="submit" value="Luo lauluvihko">';//1testi
+echo '<br><input type="submit" value="Luo lauluvihko">';//1testi
 
 echo "</form>";//1testi
 

@@ -91,6 +91,7 @@ $pdfname = substr($filename, 0, -4) . '.pdf';
 //echo "PDF-NIMI:" $pdfname;
 if(file_exists($pdfname)){
 readfile($pdfname);
+header( "refresh:5;url=$pdfname" );
 }
 else{
 echo "pdf-generointi ei onnistunut!";

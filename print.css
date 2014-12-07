@@ -1,0 +1,26 @@
+@media print {
+/*
+auto   automaattinen 
+always sivunvaihto aina ennen elementtiä 
+avoid  sivunvaihtoa ei ennen elementtiä 
+left   pakota sivunvaihtoja niin, että seuraava sivu on vasen 
+right  pakota sivunvaihtoja niin, että seuraava sivu on oikea 
+*/
+
+h1, h2, h3 { 
+  page-break-after: avoid;
+  page-break-inside: avoid; 
+}
+
+ul, ol, dl { 
+  page-break-before: avoid; 
+}
+
+img {
+  page-break-inside: avoid;
+}
+
+.navbar, .navbartop, .navbarbottom, .alapalkki, .navbartop, .navigointivasen, .haku {
+  display: none;
+}
+}
