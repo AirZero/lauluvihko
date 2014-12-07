@@ -19,6 +19,9 @@
     <input type="submit" name="submit" value="Tallenna laulu"/>
 </p>
 </form>
+<h2>Lähetä lauluvihkon kansikuva</h2>
+<p>Kuva kannattaa lähettää .png-muodossa. Myös .jpg käy.</p>
+<?php include("sendimage.php"); ?>
 
 <h2>Luo uusi lauluvihko</h2>
 <p>Lauluvihkot tallentuvat <a href="books/">tänne</a>. Valitse kappaleet, jotka haluat lauluvihkoosi.</p>

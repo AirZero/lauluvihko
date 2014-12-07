@@ -4,6 +4,7 @@
 
 //TODO regexp check
 $name = $_GET['songs'];
+$cover = $_GET['pics'];
 
 $songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']); // Ei tyhmää paskaa tiedostonimeen
 $songbooktitle = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_GET['bookname']); 
@@ -41,6 +42,15 @@ $ret = file_put_contents($writefile, $fileContents, FILE_APPEND | LOCK_EX);
 $songbookbegin = 'structure/begin.tex';
 readAndWrite($songbookbegin, $filename);
 
+//Adds frontpage picture
+$covername = '\includegraphics{' . 'frontpage/' . $cover[0] . '}';
+writetofile($filename, $covername);
+
+//Adds stuff after frontpage picture
+$after = 'structure/after_frontpage.tex';
+readAndWrite($after, $filename);
+
+
 //Creates title page
 //readAndWrite('structure/titlepage.tex', $filename);
 
@@ -63,7 +73,7 @@ $songbookend = 'structure/end.tex';
 readAndWrite($songbookend, $filename);
 
 //Generates .pdf
-$generate = 'latexmk -pdf -f ' . $filename;     // '-jobname=/books_pdf/' . $songbookname . '.tex' ;//$filename;
+$generate = 'pdflatex ' . $filename;//'latexmk -pdf -f ' . $filename;     // '-jobname=/books_pdf/' . $songbookname . '.tex' ;//$filename;
 echo "GENERATE:" . $generate;
 echo exec($generate);
 //shell_exec("/usr/bin/pdflatex -output-directory /pdfs --interaction batchmode $filename");
