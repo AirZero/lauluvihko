@@ -21,10 +21,12 @@
 </form>
 <h2>Lähetä lauluvihkon kansikuva</h2>
 <p>Kuva kannattaa lähettää .png-muodossa. Myös .jpg käy.</p>
+<p>Kansikuvat löytyvät <a href="frontpage/">täältä</a>.</p>
 <?php include("sendimage.php"); ?>
 
 <h2>Luo uusi lauluvihko</h2>
-<p>Lauluvihkot tallentuvat <a href="books/">tänne</a>. Valitse kappaleet, jotka haluat lauluvihkoosi.</p>
+<p>Lauluvihkot tallentuvat <a href="books_pdf/">tänne</a> .pdf-muodossa. Valitse kappaleet, jotka haluat lauluvihkoosi.</p>
+<p>.tex muotoiset vihkot löytyvät täältä</p>
 <?php include("songlist.php"); ?>
 
 

@@ -73,7 +73,7 @@ $songbookend = 'structure/end.tex';
 readAndWrite($songbookend, $filename);
 
 //Generates .pdf
-$generate = 'pdflatex ' . $filename;//'latexmk -pdf -f ' . $filename;     // '-jobname=/books_pdf/' . $songbookname . '.tex' ;//$filename;
+$generate = 'pdflatex -output-directory books_pdf ' . $filename;//'latexmk -pdf -f ' . $filename;     // '-jobname=/books_pdf/' . $songbookname . '.tex' ;//$filename;
 echo "GENERATE:" . $generate;
 echo exec($generate);
 //shell_exec("/usr/bin/pdflatex -output-directory /pdfs --interaction batchmode $filename");
