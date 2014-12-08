@@ -55,7 +55,7 @@ writetofile($filename, $bookname);
 writetofile($filename, '\pvm{' . $date . '}' . "\n");
 
 //Adds back cover pic
-writetofile($filename, '\takakansikuva{' . 'backcover/' . $backcover[0] . '}');
+writetofile($filename, '\takakansikuva{' . 'frontpage/' . $backcover[0] . '}');
 
 
 //Adds stuff after frontpage picture
