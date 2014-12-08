@@ -1,6 +1,6 @@
-     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//FI"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-      <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+      <html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
         <head>
 <link rel="stylesheet"  media="print" href="print.css" type="text/css"/>
 <link rel="StyleSheet" href="mobile.css" media="all" type="text/css" />
@@ -9,7 +9,6 @@
           <title>Lauluvihkogeneraattori</title>
         </head>
 <body>
-
 <h1>Lauluvihkogeneraattori</h1>
 
 <h2>Luo lauluvihko</h2>

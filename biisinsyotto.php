@@ -2,7 +2,25 @@
 header('Content-type: text/html; charset=UTF-8');
 if(isset($_POST['laulun_nimi']) && isset($_POST['laulun_sanat'])) {
 
-$melody = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_POST['melody']);
+
+//fixes special chars compatible to latex.
+function latexSpecialChars( $string )
+{
+    $map = array( 
+            "#"=>"\\#",
+            "$"=>"\\$",
+            "%"=>"\\%",
+            "&"=>"\\&",
+            "~"=>"\\~{}",
+            "_"=>"\\_",
+            "^"=>"\\^{}",
+            "\\"=>"\\textbackslash{}",
+            "{"=>"\\{",
+            "}"=>"\\}",
+    );
+    return preg_replace( "/([\^\%~\\\\#\$%&_\{\}])/e", "\$map['$1']", $string );
+}
+$melody = latexSpecialChars(utf8_decode($_POST['melody']));
 
 if($melody == TRUE){
 $sectionmelody = '\laulu{';
@@ -13,8 +31,13 @@ $sectionmelody = '\section{';
 $sectionend = '';
 }
 
-$data = $sectionmelody . preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', utf8_decode($_POST['laulun_nimi'])) .'}' . $sectionend . "\n" . preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}\.\'\"\,;:!@?\/]/', '_', utf8_decode($_POST['laulun_sanat'])); // TODO: Sanitoi input!
-$filename = 'biisit/' . preg_replace('/[^A-Za-z0-9_\-]/', '_', $_POST['laulun_nimi']) . '.txt' ; // Ei tyhmää paskaa tiedostonimeen
+$data = $sectionmelody . latexSpecialChars(utf8_decode($_POST['laulun_nimi'])) .'}' . $sectionend . "\n" . latexSpecialChars(utf8_decode($_POST['laulun_sanat'])); //  Cleans latex special chars and combines song name and lyrics.
+$filename = 'biisit/' . preg_replace('/[^A-Za-z0-9_\-]/', '_', $_POST['laulun_nimi']) . '.txt' ; // folder name, filename without special chars.
+
+
+
+
+
 if(file_exists($filename)) {
 echo "file with same name already exists!";
 }

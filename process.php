@@ -6,9 +6,11 @@
 $name = $_GET['songs'];
 $cover = $_GET['pics'];
 $pdfsavedir = 'books_pdf';
+$date = $_GET['date'];
+$backcover = $_GET['backcover'];
 
 $songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']);  //regexp rips off the useless stuff.
-$songbooktitle = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_GET['bookname']); 
+//$songbooktitle = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_GET['bookname']);  //todo jos käytät tätä, korjaa se
 
 if (is_array($name)) {
 
@@ -27,13 +29,13 @@ writetofile($writefilename, $fileContents);
 
 //Kirjoittaa ensimmäisen parametrin nimiseen tiedostoon toisen parametrin sisällön.
 function writetofile($writefile, $fileContents){
-echo $fileContents;
+//DEBUG echo $fileContents;
 $ret = file_put_contents($writefile, $fileContents, FILE_APPEND | LOCK_EX);
  if($ret === false) {
         die('There was an error writing this file');
     }
     else {
-        echo "$ret tavun kokoinen laulu tallennettu onnistuneesti.";
+        //DEBUG echo "$ret tavun kokoinen laulu tallennettu onnistuneesti.";
     }
 }
 
@@ -42,8 +44,20 @@ $songbookbegin = 'structure/begin.tex';
 readAndWrite($songbookbegin, $filename);
 
 //Adds frontpage picture
-$covername = '\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{' . 'frontpage/' . $cover[0] . '}';
+$covername = '\kansikuva{' . '../' . 'frontpage/' . $cover[0] . '}';
+echo $covername;
 writetofile($filename, $covername);
+
+//Adds songbook's name
+$bookname = '\tapahtuma{' . $songbookname . '}';
+writetofile($filename, $eventname);
+
+//Adds date
+writetofile($filename, '\pvm{' . $date . '}');
+
+//Adds back cover pic
+
+writetofile($filename, '\takakansikuva{' . $backcover . '}');
 
 
 //Adds stuff after frontpage picture
@@ -62,7 +76,7 @@ readAndWrite($after, $filename);
 foreach ($name as $song) {
 
 $readfile = 'biisit/' . $song;
-echo $readfile;
+//DEBUG echo $readfile;
 readAndWrite($readfile, $filename); 
 
 }
@@ -71,12 +85,16 @@ readAndWrite($readfile, $filename);
 $songbookend = 'structure/end.tex';
 readAndWrite($songbookend, $filename);
 
-//Generates .pdf
-$generate = 'pdflatex -output-directory books_pdf/ ' . $filename;
-echo "GENERATE:" . $generate;
-echo exec($generate);
-echo exec($generate);
 
+//Generates .pdf
+$generate = 'pdflatex -output-directory books_pdf ' . $filename;
+//DEBUG echo "GENERATE:" . $generate;
+
+//Compiles twice. Thay way table of contents works.
+//DEBUG echo
+exec($generate);
+//DEBUG echo 
+exec($generate);
 //removes unnecessary files
 /*$firstpart = substr($filename, 0, -4);
 echo exec(rm $firstpart . '.aux');
@@ -85,16 +103,18 @@ echo exec(rm $firstpart . '.out');
 */
 
 //shell_exec("/usr/bin/pdflatex -output-directory /pdfs --interaction batchmode $filename");
-$pdfname = substr('books_pdf/' . $songbookname . '.pdf');
+$pdfname = 'books_pdf/' . $songbookname . '.pdf';
 //DEBUG echo "PDF-NIMI:" . $pdfname;
 if(file_exists($pdfname)){
-echo '<a href="' . $pdfname . '">' . $pdfname . '</a>';
+echo '<p>Odota, ohjaan sinut valmiiseen lauluvihkoon.</p>';
+echo '<meta http-equiv="Refresh" content="3; url=' . $pdfname . '">';
+//echo '<p><a href="' . $pdfname . '">' . $pdfname . '</a></p>';
 //readfile($pdfname);
 //header( "refresh:5;url=$pdfname" );
 }
 else{
-echo "pdf-generointi ei onnistunut!";
-echo '<a href="' . $pdfname . '">' . $pdfname . '</a>';
+//echo "pdf-generointi ei onnistunut!";
+echo '<p><a href="' . $pdfname . '">' . $pdfname . '</a></p>';
 }
 
 //echo "Homma toimii ja laulu raikaa!";

@@ -42,6 +42,8 @@ echo '<h3>Valitse kansikuva</h3>';
 foreach ($frontpagepics as $pic){
 echo '<p><input type="radio" name="pics[]" value='. '"' . $pic . '"'  .'/>' . '<a href="frontpage/' . $pic . '">' . $pic . '"' . '</a>' . '<br /></p>';//1testi
 }
+echo '<h3>Syötä tapahtuman päivämäärä</h3>'
+//TODO input tähän
 
 echo '<p><br /><input type="submit" value="Luo lauluvihko" /></p>';//1testi
 
