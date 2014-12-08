@@ -20,6 +20,9 @@ function scandir_tree($directory_name, $sort_order = SCANDIR_SORT_ASCENDING, $_r
 $name = scandir_tree(biisit);//$_GET['color'];
 
 $frontpagepics = scandir_tree(frontpage);
+//easier to use same folder. At some point might be useful to make different ones though.
+$backcover = scandir_tree(frontpage);
+
 
 // optional
 // echo "You chose the following color(s): <br>";
@@ -34,16 +37,23 @@ echo '<p><input name="bookname" type="text" value="Vihkon nimi" /><br /></p>';
 echo '<h3>Valitse laulut</h3>';
 foreach ($name as $song){
 //echo $color."<br />";
-echo '<p><input type="checkbox" name="songs[]" value=' . '"' . $song . '"' . '/>' . '<a href="biisit/' . $song . '">' . $song . '"' .'</a>' . '<br /></p>';//1testi
+echo '<p><input type="checkbox" name="songs[]" value=' . '"' . $song . '"' . '/>' . '<a href="biisit/' . $song . '">' . $song  .'</a>' . '<br /></p>';//1testi
 }
 
 //creates checkbox list from the pics
 echo '<h3>Valitse kansikuva</h3>';
 foreach ($frontpagepics as $pic){
-echo '<p><input type="radio" name="pics[]" value='. '"' . $pic . '"'  .'/>' . '<a href="frontpage/' . $pic . '">' . $pic . '"' . '</a>' . '<br /></p>';//1testi
+echo '<p><input type="radio" name="pics[]" value='. '"' . $pic . '"'  .'/>' . '<a href="frontpage/' . $pic . '">' . $pic . '</a>' . '<br /></p>';//1testi
 }
-echo '<h3>Syötä tapahtuman päivämäärä</h3>'
-//TODO input tähän
+
+echo '<h3>Syötä tapahtuman päivämäärä</h3>';
+echo '<p><input type="date" name="date"/></p>';
+
+//Creates backcover list
+echo '<h3>Valitse takakansi</h3>';
+foreach ($backcover as $back){
+echo '<p><input type="radio" name="backcover[]" value='. '"' . $back . '"'  .'/>' . '<a href="frontpage/' . $back . '">' . $back . '</a>' . '<br /></p>';//1testi
+}
 
 echo '<p><br /><input type="submit" value="Luo lauluvihko" /></p>';//1testi
 

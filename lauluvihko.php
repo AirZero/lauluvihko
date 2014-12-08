@@ -1,4 +1,4 @@
-     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//FI"
+     <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
       <html xmlns="http://www.w3.org/1999/xhtml" lang="fi" xml:lang="fi">
         <head>
@@ -16,9 +16,9 @@
 <p>.tex muotoiset vihkot löytyvät  <a href="books/">täältä</a></p>
 <?php include("songlist.php"); ?>
 
-<h2>Lähetä uusi lauluvihkon kansikuva</h2>
+<h2>Lähetä uusi kuva lauluvihkoon.</h2>
 <p>Kuva kannattaa lähettää .png-muodossa. Myös .jpg käy.</p>
-<p>Kansikuvat löytyvät <a href="frontpage/">täältä</a>.</p>
+<p>Aiemmin lähetyt kuvat löytyvät <a href="frontpage/">täältä</a>.</p>
 <?php include("sendimage.php"); ?>
 
 <?php include("create_song.php"); ?>

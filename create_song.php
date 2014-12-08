@@ -1,5 +1,5 @@
 <h2>Luo uusi laulu</h2>
-<p>Laulut löytyvät<a href="biisit/">täältä</a>.</p>
+<p>Aiemmin luodut laulut löytyvät <a href="biisit/">täältä</a> .tex muodossa.</p>
 <form action="biisinsyotto.php" method="post" accept-charset="UTF-8">
 <p>
     <input name="laulun_nimi" value="Laulun nimi"/>

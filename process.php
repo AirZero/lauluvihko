@@ -44,20 +44,18 @@ $songbookbegin = 'structure/begin.tex';
 readAndWrite($songbookbegin, $filename);
 
 //Adds frontpage picture
-$covername = '\kansikuva{' . '../' . 'frontpage/' . $cover[0] . '}';
-echo $covername;
+$covername = '\kansikuva{' . 'frontpage/' . $cover[0] . '}' . "\n";
 writetofile($filename, $covername);
 
 //Adds songbook's name
-$bookname = '\tapahtuma{' . $songbookname . '}';
-writetofile($filename, $eventname);
+$bookname = '\tapahtuma{' . $songbookname . '}' . "\n";
+writetofile($filename, $bookname);
 
 //Adds date
-writetofile($filename, '\pvm{' . $date . '}');
+writetofile($filename, '\pvm{' . $date . '}' . "\n");
 
 //Adds back cover pic
-
-writetofile($filename, '\takakansikuva{' . $backcover . '}');
+writetofile($filename, '\takakansikuva{' . 'backcover/' . $backcover[0] . '}');
 
 
 //Adds stuff after frontpage picture
@@ -114,7 +112,7 @@ echo '<meta http-equiv="Refresh" content="3; url=' . $pdfname . '">';
 }
 else{
 //echo "pdf-generointi ei onnistunut!";
-echo '<p><a href="' . $pdfname . '">' . $pdfname . '</a></p>';
+echo '<p><a href="' . 'books_pdf/'  . $songbookname . '.log'  . '">' . 'generointi epäonnistui, syytä voi etsiskellä täältä' . $songbookname . '.log' . '</a></p>';
 }
 
 //echo "Homma toimii ja laulu raikaa!";
