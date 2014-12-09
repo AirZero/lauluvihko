@@ -14,11 +14,11 @@
 \addtolength{\textheight}{0.5in}
 
 \setlength{\parindent}{0mm} 
-\setlength{\parskip}{1mm}
+\setlength{\parskip}{3mm}
 
 \long\def\@tapahtuma{\relax}
 \newcommand{\tapahtuma}[1]{\gdef\@tapahtuma{#1}}
-
+	
 \long\def\@pvm{\relax}
 \newcommand{\pvm}[1]{\gdef\@pvm{#1}}
 
@@ -45,12 +45,12 @@
 \newcommand{\kansilehti}{
       \thispagestyle{empty}
       \begin{center}
-      \null
+%     \null
       \ifthenelse{\equal{\@tapahtuma}{\relax}}{}{\vfill{\fontsize{1.5cm}{1em}\selectfont \@tapahtuma} \\ } % tapahtuman nimi
-      \ifthenelse{\equal{\@kansikuva}{\relax}}{}{\vfill\includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{\@kansikuva} \\} % kansikuva
+      \ifthenelse{\equal{\@kansikuva}{\relax}}{}{\vfill\includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{\@kansikuva} \\} % kansikuva
       \ifthenelse{\equal{\@pvm}{\relax}}{}{\vfill\Huge\@pvm \\}  % tapahtuman päivämärää
       \vfill 
-      \null
+ %     \null
       \newpage
       \end{center}
       }
@@ -60,7 +60,7 @@
       \ifthenelse{\equal{\@takakansikuva}{\relax}}{}
          {  
             \begin{center} \null\vfill
-            \includegraphics[width=\textwidth,height=\textheight,keepaspectratio]{\@takakansikuva}
+            \includegraphics[width=.9\textwidth,height=.9\textheight,keepaspectratio]{\@takakansikuva}
             \vfill\null
             \end{center}
          }
