@@ -1,5 +1,6 @@
 <?php
-$target_dir = $_POST['folder'];
+$target_dir = str_replace('/','_',$_POST['folder']);
+if(!is_dir($target_dir)) { echo "Sorry, folder does not exist"; $uploadOk = 0; }
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
