@@ -1,0 +1,12 @@
+\select@language {finnish}
+\contentsline {section}{\numberline {1}Helan g\r ar}{4}{section.1}
+\contentsline {section}{\numberline {2}Alla Jallut\"ahden}{4}{section.2}
+\contentsline {section}{\numberline {3}Eino Leinon juomalaulu}{4}{section.3}
+\contentsline {section}{\numberline {4}Helan g\r ar}{4}{section.4}
+\contentsline {section}{\numberline {5}Jos eukkosi kielt\"a\"a}{4}{section.5}
+\contentsline {section}{\numberline {6}K.O.S.S.U}{5}{section.6}
+\contentsline {section}{\numberline {7}Kilisee kilisee}{5}{section.7}
+\contentsline {section}{\numberline {8}Niin paljon m\"a juon}{5}{section.8}
+\contentsline {section}{\numberline {9}T\"an\"a\"an otetaan}{5}{section.9}
+\contentsline {section}{\numberline {10}Viinan mets\"astys}{5}{section.10}
+\contentsline {section}{\numberline {11}Vitutuslaulu}{6}{section.11}

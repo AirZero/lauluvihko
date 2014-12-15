@@ -1,0 +1,54 @@
+\section{Viinan mets‰stys}
+Leijonaa m‰ mets‰st‰n
+Tahdon saada k‰nnin
+Enk‰ lantraa ollenkaan
+
+Edess‰ on baari
+T‰pˆt‰ysi baari
+
+Sit‰ ei voi sivuuttaa
+Sit‰ ei voi ohittaa
+Sit‰ ei voi v‰ltt‰‰
+T‰ytyy menn‰ sis‰lle
+lomps x8
+
+Kossua m‰ mets‰st‰n
+Tahdon saada k‰nnin
+Enk‰ lantraa ollenkaan
+
+Edess‰ on portsari
+Iso tuima portsari
+
+Sit‰ ei voi sivuuttaa
+Sit‰ ei voi ohittaa
+Sit‰ ei voi v‰ltt‰‰
+T‰ytyy n‰ytt‰‰ henkkarit
+huisk x8
+
+Jekkua m‰ mets‰st‰n
+Tahdon saada k‰nnin
+Enk‰ lantraa ollenkaan
+
+Edess‰ on narikka
+Turhan kallis narikka
+
+Sit‰ ei voi sivuuttaa
+Sit‰ ei voi ohittaa
+Sit‰ ei voi v‰ltt‰‰
+T‰ytyy maksaa palvelumaksu
+kilin x8
+
+Jallua m‰ mets‰st‰n
+Tahdon saada k‰nnin
+Enk‰ lantraa ollenkaan
+
+Edess‰ on tiski
+Tiskilt‰ saa juomaa
+
+Sit‰ ei voi sivuuttaa
+Sit‰ ei voi ohittaa
+Sit‰ ei voi v‰ltt‰‰
+T‰ytyy vet‰‰ tiukkoja
+hˆrps x8 omasta juomasta
+
+Kaikki yhteen ‰‰neen: Aaaah...

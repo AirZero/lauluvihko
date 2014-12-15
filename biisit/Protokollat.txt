@@ -1,0 +1,5 @@
+\laulu{Protokollat}{Jaakko-kulta}
+HTTP, HTTP
+SSH, SSH
+EMAIL sekä TELNET email sekä TELNET
+IRC, IRC

@@ -1,0 +1,10 @@
+\select@language {finnish}
+\contentsline {section}{\numberline {1}Helan g\r ar}{4}{section.1}
+\contentsline {section}{\numberline {2}Alla Jallut\"ahden}{4}{section.2}
+\contentsline {section}{\numberline {3}Jos eukkosi kielt\"a\"a}{4}{section.3}
+\contentsline {section}{\numberline {4}Juomalaulu laulutaidottomille}{4}{section.4}
+\contentsline {section}{\numberline {5}Kilisee kilisee}{5}{section.5}
+\contentsline {section}{\numberline {6}Kulta Lapista}{5}{section.6}
+\contentsline {section}{\numberline {7}Pieni\"a k\"a\"armeit\"a}{5}{section.7}
+\contentsline {section}{\numberline {8}Protokollat}{5}{section.8}
+\contentsline {section}{\numberline {9}Silja Line special}{5}{section.9}

@@ -1,0 +1,8 @@
+Laulujen järjestäminen
+
+Sääntösivu
+
+Regexpit laulujen nimille niin, että ä->a ö->o jne.
+
+Valmiin laululistan luonti vihkon luonnin lisäksi (eli yhdistää laulut, muttei lisää kansikuvia yms. tauhkaa). Runkoon voi yhdistää lisää lauluja tmv. jänskää.
+Ajatuksena kuitenkin, että olisi "geneerisiä vihkoja" joista saisi kuvat(ja mahdollisesti muutaman biisin) lisäämällä suoraan tarkoitukseen sopivia.

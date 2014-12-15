@@ -1,0 +1,11 @@
+\select@language {finnish}
+\contentsline {section}{\numberline {1}Helan g\r ar}{3}{section.1}
+\contentsline {section}{\numberline {2}Internationalen}{3}{section.2}
+\contentsline {section}{\numberline {3}Jos eukkosi kielt\"a\"a}{3}{section.3}
+\contentsline {section}{\numberline {4}K.O.S.S.U}{3}{section.4}
+\contentsline {section}{\numberline {5}Ko-ko-ko-koskenkorvaa}{4}{section.5}
+\contentsline {section}{\numberline {6}Kulta Lapista}{4}{section.6}
+\contentsline {section}{\numberline {7}Leukojen v\"alliin}{4}{section.7}
+\contentsline {section}{\numberline {8}Oodi sitoutumattomuudelle}{4}{section.8}
+\contentsline {section}{\numberline {9}Pienet konjakit}{5}{section.9}
+\contentsline {section}{\numberline {10}Viinaa, vett\"a}{5}{section.10}

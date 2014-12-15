@@ -1,0 +1,51 @@
+
+
+\documentclass[a4paper,12pt,oneside]{lauluvihko}
+
+\usepackage[latin1]{inputenc}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[finnish]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage[pdftex,hidelinks]{hyperref}
+\kansikuva{frontpage/betoni_pupu.png}
+\tapahtuma{laikka12}
+\pvm{2014-12-17}
+\takakansikuva{frontpage/saannot.png}
+\begin{document}
+
+   \kansilehti % luodaan kansilehti
+
+   \newpage % uusi sivu
+
+   \tableofcontents % sisÃ¤llysluettelo
+
+   \newpage % uusi sivu
+
+
+\section{Säännöt}
+
+\documentclass[a4paper,12pt,oneside]{lauluvihko}
+
+\usepackage[latin1]{inputenc}
+\usepackage{multicol}
+\usepackage{graphicx}
+\usepackage[finnish]{babel}
+\usepackage[OT1]{fontenc}
+\usepackage[pdftex,hidelinks]{hyperref}
+\kansikuva{frontpage/betoni_pupu.png}
+\tapahtuma{laikka13}
+\pvm{2014-12-17}
+\takakansikuva{frontpage/saannot.png}
+\begin{document}
+
+   \kansilehti % luodaan kansilehti
+
+   \newpage % uusi sivu
+
+   \tableofcontents % sisÃ¤llysluettelo
+
+   \newpage % uusi sivu
+
+
+\section{Saannot}

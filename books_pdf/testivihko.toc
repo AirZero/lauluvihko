@@ -1,0 +1,12 @@
+\select@language {finnish}
+\contentsline {section}{\numberline {1}Aqua vera}{4}{section.1}
+\contentsline {section}{\numberline {2}Kotikalja}{4}{section.2}
+\contentsline {section}{\numberline {3}Linkin sitsit}{4}{section.3}
+\contentsline {section}{\numberline {4}Mielihaluja}{5}{section.4}
+\contentsline {section}{\numberline {5}Minnet}{5}{section.5}
+\contentsline {section}{\numberline {6}Niin paljon m\"a juon}{5}{section.6}
+\contentsline {section}{\numberline {7}Olutkaanon}{5}{section.7}
+\contentsline {section}{\numberline {8}PERKELE}{5}{section.8}
+\contentsline {section}{\numberline {9}Testamentti}{5}{section.9}
+\contentsline {section}{\numberline {10}Viinaa, vett\"a}{6}{section.10}
+\contentsline {section}{\numberline {11}Viinan mets\"astys}{6}{section.11}
