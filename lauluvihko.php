@@ -10,11 +10,13 @@
         </head>
 <body>
 <h1>Lauluvihkogeneraattori</h1>
-
+<p>Generaattorin avulla voit luoda lauluvihkoja. Lähdekoodi löytyy <a href="https://github.com/airzero/lauluvihko">täältä</a>.  Palautetta generaattorin toiminnasta voi lähettää osoitteeseen eetu.rantakangas ät iki.fi</p>
 <h2>Luo lauluvihko</h2>
-<p>Lauluvihkot tallentuvat <a href="books_pdf/">tänne</a> .pdf-muodossa. Valitse kappaleet, jotka haluat lauluvihkoosi.</p>
-<p>.tex muotoiset vihkot löytyvät  <a href="books/">täältä</a></p>
 <?php include("songlist.php"); ?>
+<br />
+<p>Lauluvihkot tallentuvat <a href="books_pdf/">tänne</a> .pdf-muodossa.</p>
+<p>.tex muotoiset vihkot löytyvät  <a href="books/">täältä</a></p>
+
 
 <h2>Lähetä uusi kuva lauluvihkoon.</h2>
 <p>Kuva kannattaa lähettää .png-muodossa. Myös .jpg käy.</p>

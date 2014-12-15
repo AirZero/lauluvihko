@@ -2,12 +2,15 @@
 //processes song.txt's to .tex and .pdf
 //
 
+include("functions.php");
+
 //TODO regexp check
 $name = $_GET['songs'];
 $cover = $_GET['pics'];
 $pdfsavedir = 'books_pdf';
 $date = $_GET['date'];
 $backcover = $_GET['backcover'];
+$rules = $_GET['rules'];
 
 $songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']);  //regexp rips off the useless stuff.
 //$songbooktitle = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_GET['bookname']);  //todo jos käytät tätä, korjaa se
@@ -17,27 +20,13 @@ if (is_array($name)) {
 //This tells which folder and which name are used to save songbook.
 $filename = 'books/' . $songbookname . '.tex' ;
 
+if(file_exists($filename)) {
+echo "file with same name already exists!";
+}
+
+else{
+
 //read file and writes it contents to another file.
-function readAndWrite($readfilename, $writefilename) {
-
-$myfile = fopen($readfilename, "r") or die("Unable to open file!");
-$fileContents = PHP_EOL . fread($myfile,filesize($readfilename));
-
-fclose($myfile);
-writetofile($writefilename, $fileContents);
-}
-
-//Kirjoittaa ensimmäisen parametrin nimiseen tiedostoon toisen parametrin sisällön.
-function writetofile($writefile, $fileContents){
-//DEBUG echo $fileContents;
-$ret = file_put_contents($writefile, $fileContents, FILE_APPEND | LOCK_EX);
- if($ret === false) {
-        die('There was an error writing this file');
-    }
-    else {
-        //DEBUG echo "$ret tavun kokoinen laulu tallennettu onnistuneesti.";
-    }
-}
 
 //$songbookbegin  is the stuff that's needed before the chapters for generating latex document.
 $songbookbegin = 'structure/begin.tex';
@@ -57,10 +46,18 @@ writetofile($filename, '\pvm{' . $date . '}' . "\n");
 //Adds back cover pic
 writetofile($filename, '\takakansikuva{' . 'frontpage/' . $backcover[0] . '}');
 
-
 //Adds stuff after frontpage picture
 $after = 'structure/after_frontpage.tex';
 readAndWrite($after, $filename);
+
+//Writes rules
+if (is_array($rules)){ 
+//writetofile($filename, '\section{Saannot}');
+readAndWrite( 'rules/' . $rules[0], $filename);
+writetofile($filename, '\newpage');
+}
+//writes multicol
+writetofile($filename, '\begin{multicols}{2}');
 
 
 //Creates title page
@@ -116,6 +113,8 @@ echo '<p><a href="' . 'books_pdf/'  . $songbookname . '.log'  . '">' . 'generoin
 }
 
 //echo "Homma toimii ja laulu raikaa!";
+
+}
 
 }
 
