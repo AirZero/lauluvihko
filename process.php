@@ -3,6 +3,7 @@
 //
 
 include("functions.php");
+include("regexp_functions.php");
 
 //TODO regexp check
 $name = $_GET['songs'];
@@ -12,7 +13,7 @@ $date = $_GET['date'];
 $backcover = $_GET['backcover'];
 $rules = $_GET['rules'];
 
-$songbookname = preg_replace('/[^A-Za-z0-9_\-]/', '_', $_GET['bookname']);  //regexp rips off the useless stuff.
+$songbookname = sanitizeFilename($_GET['bookname']);  //regexp rips off the useless stuff.
 //$songbooktitle = preg_replace('/[^A-Za-zäöüåÄÖÅÜ0-9_\ -\p{L}]/', '_', $_GET['bookname']);  //todo jos käytät tätä, korjaa se
 
 if (is_array($name)) {
@@ -30,7 +31,7 @@ else{
 
 //$songbookbegin  is the stuff that's needed before the chapters for generating latex document.
 $songbookbegin = 'structure/begin.tex';
-readAndWrite($songbookbegin, $filename);
+readAndWrite($filename, $songbookbegin);
 
 //Adds frontpage picture
 $covername = '\kansikuva{' . 'frontpage/' . $cover[0] . '}' . "\n";
@@ -48,12 +49,12 @@ writetofile($filename, '\takakansikuva{' . 'frontpage/' . $backcover[0] . '}');
 
 //Adds stuff after frontpage picture
 $after = 'structure/after_frontpage.tex';
-readAndWrite($after, $filename);
+readAndWrite($filename, $after);
 
 //Writes rules
 if (is_array($rules)){ 
 //writetofile($filename, '\section{Saannot}');
-readAndWrite( 'rules/' . $rules[0], $filename);
+readAndWrite($filename, 'rules/' . $rules[0]);
 writetofile($filename, '\newpage');
 }
 //writes multicol
@@ -61,7 +62,7 @@ writetofile($filename, '\begin{multicols}{2}');
 
 
 //Creates title page
-//readAndWrite('structure/titlepage.tex', $filename);
+//readAndWrite($filename, 'structure/titlepage.tex');
 
 //Writes name of songbook.
 //writetofile($filename,'\title{' . $songbooktitle . '}' . PHP_EOL  .'\maketitle');
@@ -72,13 +73,13 @@ foreach ($name as $song) {
 
 $readfile = 'biisit/' . $song;
 //DEBUG echo $readfile;
-readAndWrite($readfile, $filename); 
+readAndWrite($filename, $readfile); 
 
 }
 
 //Laulukirjan loppuun vaaditut tekstit.
 $songbookend = 'structure/end.tex';
-readAndWrite($songbookend, $filename);
+readAndWrite($filename, $songbookend);
 
 
 //Generates .pdf
