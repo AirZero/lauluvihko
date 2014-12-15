@@ -1,8 +1,16 @@
 <?php
-$target_dir = str_replace('/','_',$_POST['folder']);
-if(!is_dir($target_dir)) { echo "Sorry, folder does not exist"; $uploadOk = 0; }
+
+//OLD SOLUTION
+//$target_dir = str_replace('/','_',$_POST['folder']);
+//if(!is_dir($target_dir)) { echo "Sorry, folder does not exist"; $uploadOk = 0; }
+//$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+//$uploadOk = 1;
+
+//NEW Solution
+$target_dir = 'frontpage/';
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-$uploadOk = 1;
+
+
 $imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {

@@ -44,7 +44,7 @@ foreach ($rules as $rule){
 echo '<p><input type="checkbox" name="rules[]" value=' . '"' . $rule . '"' . '/>' . '<a href="rules/' . $rule . '">' . $rule  .'</a>' . '<br /></p>';//1testi
 }
 
-// Creates checkbox list from the .txt's
+// Creates checkbox list from the song .txt's
 echo '<h3>Valitse laulut</h3>';
 foreach ($name as $song){
 //echo $color."<br />";
